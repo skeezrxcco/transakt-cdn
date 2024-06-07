@@ -1,5 +1,5 @@
 (function() {
-    const createIntentEndpoint = 'http://localhost:3000/api/intents/intent';
+    const createIntentEndpoint = 'http://transakt.local/pay/intents/intent';
     const payPageUrl = 'https://example.com/pay';
     // Function to create the button and inject it into the DOM
     function createButton(apiKey) {
@@ -37,6 +37,8 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
             },
             body: JSON.stringify(requestData)
         })
