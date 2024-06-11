@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Transakt Button</title>
-</head>
-<body>
-    <div id="transakt-btn"></div>
-    <script src="transakt.js?apikey=YOUR_CLIENT_API_KEY"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Merchant Page</title>
+    <script src="transakt.js"></script>
+  </head>
+
+  <body>
+    <button onclick="initiatePayment()">Pay Now</button>
+
+    <script>
+      function initiatePayment() {
+        const inputs = {
+          merchant_url: "https://www.hostmyservers.fr/",
+          price: {
+            amount: "1.50",
+            currency: "USD",
+          },
+          wallet_address: "0x3AFDcA7b3796A939645889d212A60d05Eed1a0Bc",
+          callback_urls: {
+            success: {
+              url: window.location.href + "/success",
+              data: { order_id: 200 },
+            },
+            error: {
+              url: window.location.href + "/error",
+              data: { order_id: 200 },
+            },
+          },
+        };
+
+        redirectToPaymentPage(inputs);
+      }
+    </script>
+  </body>
 </html>

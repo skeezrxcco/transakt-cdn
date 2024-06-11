@@ -1,8 +1,0 @@
-version: '3'
-services:
-  transakt-cdn:
-    build:
-      context: .
-    ports:
-      - "80:80"
-    hostname: transakt-cdn.local
