@@ -1,7 +1,7 @@
 // payment-gateway.js
 (function() {
   function generatePaymentURL(inputs) {
-      const baseUrl = 'http://localhost:3000/pay';
+      const baseUrl = 'http://localhost:3001/pay';
       const params = new URLSearchParams({
           inputs: JSON.stringify(inputs)
       });
